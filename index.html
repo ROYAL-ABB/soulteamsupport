@@ -59,6 +59,17 @@ section {
     font-size:16px;
     margin-top:10px;
 }
+.neon-text {
+    color:#00ffcc;
+    font-weight:bold;
+    font-size:18px;
+    text-shadow:
+        0 0 5px #00ffcc,
+        0 0 10px #00ffcc,
+        0 0 20px #00ffcc,
+        0 0 40px #00ffcc;
+    margin-top:8px;
+}
 
 /* Footer */
 footer { text-align:center; padding:12px; opacity:.5; margin-bottom:20px; }
@@ -88,7 +99,6 @@ html { scroll-behavior: smooth; }
     <h1>Soul FX Support</h1>
     <p class="subtitle">Best of News</p>
     <p>Professional Trading Assistance</p>
-    <!-- Open Account button moved here -->
     <a class="btn" href="https://direct-fxpro.com/en/partner/2AEmqAvh2?platform=web" target="_blank">Open Account</a>
     <a class="btn" href="https://t.me/soulyaxi7" target="_blank">Soul FX Main Channel</a>
 </section>
@@ -102,9 +112,9 @@ html { scroll-behavior: smooth; }
 
 <section id="account">
     <h2>Start Trading Today</h2>
-    <!-- Contact button moved here -->
     <a class="btn" href="https://t.me/gova4a" target="_blank">Contact</a>
-    <p class="info">We do not guarantee your trades. In the event of any loss or damage, you assume full responsibility. <strong style="font-size:16px;">NO RISK NO FERRARI</strong></p>
+    <p class="info">We do not guarantee your trades. In the event of any loss or damage, you assume full responsibility.</p>
+    <p class="neon-text">NO RISK NO FERRARI</p>
 </section>
 
 <footer>
@@ -133,12 +143,12 @@ function drawChart() {
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    // Move points a little faster
+    // Slightly faster movement
     points.shift();
     let last = points[points.length - 1];
-    points.push(last + (Math.random() - 0.5) * 2.5); // slightly bigger vertical movement
+    points.push(last + (Math.random() - 0.5) * 2.5);
 
-    requestAnimationFrame(() => setTimeout(drawChart, 80)); // slightly faster frame rate
+    requestAnimationFrame(() => setTimeout(drawChart, 80));
 }
 
 drawChart();
