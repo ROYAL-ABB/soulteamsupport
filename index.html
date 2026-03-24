@@ -69,6 +69,9 @@ footer { text-align:center; padding:12px; opacity:.5; margin-bottom:20px; }
     max-width:200px;
     border-radius:10px;
 }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
 </style>
 </head>
 <body>
@@ -85,7 +88,8 @@ footer { text-align:center; padding:12px; opacity:.5; margin-bottom:20px; }
     <h1>Soul FX Support</h1>
     <p class="subtitle">Best of News</p>
     <p>Professional Trading Assistance</p>
-    <a class="btn" href="https://t.me/gova4a" target="_blank">Contact</a>
+    <!-- Open Account button moved here -->
+    <a class="btn" href="https://direct-fxpro.com/en/partner/2AEmqAvh2?platform=web" target="_blank">Open Account</a>
     <a class="btn" href="https://t.me/soulyaxi7" target="_blank">Soul FX Main Channel</a>
 </section>
 
@@ -93,13 +97,14 @@ footer { text-align:center; padding:12px; opacity:.5; margin-bottom:20px; }
     <h2>Owner</h2>
     <a class="btn" href="https://t.me/soulyaxi" target="_blank">Message on Telegram</a>
     <p class="info-team">ONLY WITH SOUL FX TEAM</p>
-    <img src="418d0745-37f3-4938-9412-ef14b1b9788f.png" alt="Soul FX" class="owner-img">
+    <img src="418d0745-37f3-4938-9412-ef14b1b9788f.png" alt="Soul FX Team Owner" class="owner-img">
 </section>
 
 <section id="account">
     <h2>Start Trading Today</h2>
-    <a class="btn" href="https://direct-fxpro.com/en/partner/2AEmqAvh2?platform=web" target="_blank">Open Account</a>
-    <p class="info">We do not guarantee your trades. In the event of any loss or damage, you assume full responsibility.</p>
+    <!-- Contact button moved here -->
+    <a class="btn" href="https://t.me/gova4a" target="_blank">Contact</a>
+    <p class="info">We do not guarantee your trades. In the event of any loss or damage, you assume full responsibility. <strong style="font-size:16px;">NO RISK NO FERRARI</strong></p>
 </section>
 
 <footer>
@@ -107,7 +112,7 @@ footer { text-align:center; padding:12px; opacity:.5; margin-bottom:20px; }
 </footer>
 
 <script>
-// Slower smooth animated trading line chart
+// Slightly faster smooth animated trading line chart
 const canvas = document.getElementById("chartCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -115,30 +120,30 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let points = [];
-for (let i=0;i<150;i++) points.push(canvas.height/2 + Math.random()*100 -50);
+for (let i = 0; i < 150; i++) points.push(canvas.height / 2 + Math.random() * 100 - 50);
 
 function drawChart() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
     ctx.moveTo(0, points[0]);
-    for (let i=1;i<points.length;i++){
-        ctx.lineTo(i*(canvas.width/points.length), points[i]);
+    for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(i * (canvas.width / points.length), points[i]);
     }
     ctx.strokeStyle = "#00ffcc";
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    // Move points slower for smoother effect
+    // Move points a little faster
     points.shift();
-    let last = points[points.length-1];
-    points.push(last + (Math.random()-0.5)*5);
+    let last = points[points.length - 1];
+    points.push(last + (Math.random() - 0.5) * 2.5); // slightly bigger vertical movement
 
-    setTimeout(() => { requestAnimationFrame(drawChart); }, 60);
+    requestAnimationFrame(() => setTimeout(drawChart, 80)); // slightly faster frame rate
 }
 
 drawChart();
 
-window.addEventListener("resize", ()=>{
+window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
