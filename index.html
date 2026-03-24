@@ -41,9 +41,12 @@ section {
 .btn {
     margin-top:12px; padding:10px 25px; background:#00ffcc;
     color:black; font-weight:bold; border-radius:25px;
-    text-decoration:none; transition:.3s;
+    text-decoration:none; transition:.3s, box-shadow .3s;
 }
-.btn:hover { background:white; }
+.btn:hover { 
+    background:white;
+    box-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc, 0 0 50px #00ffcc;
+}
 
 /* Info & disclaimer */
 .info {
@@ -143,7 +146,6 @@ function drawChart() {
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    // Slightly faster movement
     points.shift();
     let last = points[points.length - 1];
     points.push(last + (Math.random() - 0.5) * 2.5);
